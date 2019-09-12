@@ -4,19 +4,20 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import pojo.Match;
 import pojo.Player;
-import pojo.PlayerProbabilityRun;
-import pojo.PlayerWrapper;
 
 public class CricketUtils {
 
-	public JSONObject getFileFromResources(String filename) throws FileNotFoundException {
+	public static JSONObject getFileFromResources(String filename) throws FileNotFoundException {
 		ClassLoader classLoader = new CricketUtils().getClass().getClassLoader();
 		InputStream resourceAsStream = classLoader.getResourceAsStream(filename);
 		JSONParser parser = new JSONParser();
@@ -36,44 +37,70 @@ public class CricketUtils {
 		return (JSONObject) obj;
 
 	}
-	
-	
-	public static List<Player> transformFromJson(JSONObject playerJsonList) {
+
+	public static Match transformMatchFromJson(String filename) throws FileNotFoundException {
+		JSONObject json = getFileFromResources(filename);
+
+		Match p = new Match();
+
+		p.setMatchName((String) json.get("matchName"));
+		p.setTarget((Long) json.get("target"));
+		p.setMaximumOver((Long) json.get("maximumOver"));
+		p.setPartnershipAllow((Long) json.get("partnershipAllow"));
+		p.setBallAllowedPerOver((Long) json.get("ballAllowedPerOver"));
+
+//			p.setWicketFall(0);
+//			p.setIsOut(false);
+//			p.setBallFaced(0);
+//			p.setRunScore(0);
+
+		return p;
+	}
+
+	public static  Map<Integer, Player> transformPlayerFromJson(String filename) throws FileNotFoundException {
+		 Map<Integer, Player> m = new HashMap<Integer, Player>();
+		JSONObject playerJsonList = getFileFromResources(filename);
 		JSONArray ja = (JSONArray) playerJsonList.get("players");
-		List<Player> list = new ArrayList<Player>();
+//		List<Player> list = new ArrayList<Player>();
 		for (Object object : ja) {
 			JSONObject json = (JSONObject) object;
 			Player p = new Player();
-			
+
 			p.setName((String) json.get("name"));
 			p.setHand((String) json.get("hander"));
 			p.setRole((String) json.get("role"));
 			p.setBattingOrder((Long) json.get("battingOrder"));
-			
+
+			p.setIsOut(false);
+			p.setBallFaced(0);
+			p.setRunScore(0);
+
 			JSONObject probObject = (JSONObject) json.get("probability");
 			// PlayerProbabilityRun pp = PlayerProbabilityRun.transformFromJson(probObject);
-			
-			p.setDot((Long)probObject.get("dot"));
-			p.setFive((Long)probObject.get("five"));
-			p.setFour((Long)probObject.get("four"));
-			p.setOne((Long)probObject.get("one"));
-			p.setSix((Long)probObject.get("six"));
-			p.setThree((Long)probObject.get("three"));
-			p.setTwo((Long)probObject.get("two"));
-			p.setWicket((Long)probObject.get("wicket"));
-			
+
+			p.setDot((Long) probObject.get("dot"));
+			p.setFive((Long) probObject.get("five"));
+			p.setFour((Long) probObject.get("four"));
+			p.setOne((Long) probObject.get("one"));
+			p.setSix((Long) probObject.get("six"));
+			p.setThree((Long) probObject.get("three"));
+			p.setTwo((Long) probObject.get("two"));
+			p.setWicket((Long) probObject.get("wicket"));
+
 			// p.setProbability(pp);
-			list.add(p);
+//			list.add(p);
+			m.put(p.getBattingOrder().intValue(), p);
+			
 		}
 
-		return list;
+		return m;
 	}
-	
-	public static List<Player> rotateStrike (Player pw1 , Player pw2) {
+
+	public static List<Player> rotateStrike(Player pw1, Player pw2) {
 //		PlayerWrapper pw1 = new PlayerWrapper(p1);
 //		PlayerWrapper pw2 = new PlayerWrapper(p2);
 		List<Player> l = new ArrayList<Player>();
-		
+
 		Player temp = pw1;
 		pw1 = pw2;
 		pw2 = temp;
@@ -81,6 +108,6 @@ public class CricketUtils {
 		l.add(pw2);
 		return l;
 	}
-	
+
 
 }

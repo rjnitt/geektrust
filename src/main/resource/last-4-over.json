@@ -1,0 +1,7 @@
+{
+  "matchName": "last-4-over",
+  "partnershipAllow": 3,
+  "maximumOver": 4,
+  "ballAllowedPerOver": 6,
+  "target" : 40
+}

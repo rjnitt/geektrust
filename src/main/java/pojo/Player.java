@@ -1,11 +1,5 @@
 package pojo;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-
 import model.Run;
 
 public class Player extends Run {
@@ -13,7 +7,13 @@ public class Player extends Run {
 	private String name;
 	private String hand;
 	private String role;
+	
 	private Long battingOrder;
+
+	private Boolean isOut;
+	private Integer ballFaced;
+	private Integer runScore;
+	
 //	private PlayerProbabilityRun probability;
 
 	public String getName() {
@@ -58,9 +58,35 @@ public class Player extends Run {
 
 	
 
+	public Boolean getIsOut() {
+		return isOut;
+	}
+
+	public void setIsOut(Boolean isOut) {
+		this.isOut = isOut;
+	}
+
+	public Integer getBallFaced() {
+		return ballFaced;
+	}
+
+	public void setBallFaced(Integer ballFaced) {
+		this.ballFaced = ballFaced;
+	}
+
+	public Integer getRunScore() {
+		return runScore;
+	}
+
+	public void setRunScore(Integer runScore) {
+		this.runScore = runScore;
+	}
+
 	@Override
 	public String toString() {
 		return "Player [name=" + name + ", hand=" + hand + ", role=" + role + ", battingOrder=" + battingOrder
-				+  "]";
+				+ ", isOut=" + isOut + ", ballFaced=" + ballFaced + ", runScore=" + runScore + "]";
 	}
+
+	
 }

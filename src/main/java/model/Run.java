@@ -48,8 +48,8 @@ public class Run extends PlayerProbabilityRun implements IRunGenerator {
 
 	}
 
-	public Long runScore() {
-		return runGenerator();
-	}
+//	public Long runScore() {
+//		return runGenerator();
+//	}
 
 }
