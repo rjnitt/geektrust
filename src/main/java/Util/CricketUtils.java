@@ -74,6 +74,7 @@ public class CricketUtils {
 			p.setIsOut(false);
 			p.setBallFaced(0);
 			p.setRunScore(0);
+			p.setTotalRunScore(0);
 
 			JSONObject probObject = (JSONObject) json.get("probability");
 			// PlayerProbabilityRun pp = PlayerProbabilityRun.transformFromJson(probObject);
@@ -104,8 +105,8 @@ public class CricketUtils {
 		Player temp = pw1;
 		pw1 = pw2;
 		pw2 = temp;
-		l.add(pw1);
 		l.add(pw2);
+		l.add(pw1);
 		return l;
 	}
 

@@ -13,8 +13,18 @@ public class Player extends Run {
 	private Boolean isOut;
 	private Integer ballFaced;
 	private Integer runScore;
+	private Integer totalRunScore;
 	
 //	private PlayerProbabilityRun probability;
+	
+	public Player() {
+		
+	}
+	
+	public Player(Integer run, Boolean flag ) {
+		this.runScore +=  run;
+		
+	}
 
 	public String getName() {
 		return name;
@@ -87,6 +97,21 @@ public class Player extends Run {
 		return "Player [name=" + name + ", hand=" + hand + ", role=" + role + ", battingOrder=" + battingOrder
 				+ ", isOut=" + isOut + ", ballFaced=" + ballFaced + ", runScore=" + runScore + "]";
 	}
+
+	public Integer getTotalRunScore() {
+		return totalRunScore;
+	}
+
+	public void setTotalRunScore(Integer totalRunScore) {
+		this.totalRunScore = totalRunScore;
+	}
+
+	public void setTotalRunScoreA(Integer totalRunScore) {
+		this.totalRunScore += totalRunScore;
+	}
+//	public void setBallFacedA(Integer totalRunScore) {
+//		this.ballFaced += totalRunScore;
+//	}
 
 	
 }

@@ -24,7 +24,7 @@ public class Run extends PlayerProbabilityRun implements IRunGenerator {
 		// long ct = System.currentTimeMillis();
 		// long runScored = Math.floorMod((System.currentTimeMillis() * 125) % 123, wicketP);
 		Random rand = new Random();
-		long runScored = Math.floorMod(rand.nextLong(), wicketP);
+		long runScored = Math.floorMod(rand.nextLong() * 17, wicketP);
 		// System.out.println("runScored: " + runScored);
 
 		if(runScored <= dotP) 

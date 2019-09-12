@@ -27,7 +27,7 @@ public class Main {
 //		}
 
 		SimulateMatch sm = new SimulateMatch();
-		sm.startMatch();
+		sm.targetInning("last-4-over.json");
 	}
 
 }
