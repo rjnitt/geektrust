@@ -6,50 +6,47 @@ import pojo.PlayerProbabilityRun;
 
 public class Run extends PlayerProbabilityRun implements IRunGenerator {
 
-//	@Override
 	public Long runGenerator() {
 
 //		PlayerProbabilityRun p = getProbability();
-
 //		Long run = 0L;
 		Long dotP = getDot();
 		Long oneP = getDot() + getOne();
-		Long twoP= getDot() + getOne() + getTwo();
-		Long threeP= getDot() + getOne() + getTwo() + getThree();
-		Long fourP= getDot() + getOne() + getTwo() + getThree() + getFour();
-		Long fiveP= getDot() + getOne() + getTwo() + getThree() + getFour() + getFive();
-		Long sixP= getDot() + getOne() + getTwo() + getThree() + getFour() + getFive() + getSix();
-		Long wicketP= getDot() + getOne() + getTwo() + getThree() + getFour() + getFive() + getSix() + getWicket();
+		Long twoP = getDot() + getOne() + getTwo();
+		Long threeP = getDot() + getOne() + getTwo() + getThree();
+		Long fourP = getDot() + getOne() + getTwo() + getThree() + getFour();
+		Long fiveP = getDot() + getOne() + getTwo() + getThree() + getFour() + getFive();
+		Long sixP = getDot() + getOne() + getTwo() + getThree() + getFour() + getFive() + getSix();
+		Long wicketP = getDot() + getOne() + getTwo() + getThree() + getFour() + getFive() + getSix() + getWicket();
 
 		// long ct = System.currentTimeMillis();
-		// long runScored = Math.floorMod((System.currentTimeMillis() * 125) % 123, wicketP);
+		// long runScored = Math.floorMod((System.currentTimeMillis() * 125) % 123,
+		// wicketP);
+		// long runScored = Math.floorMod(rand.nextLong() * 17, wicketP);
+
 		Random rand = new Random();
-		long runScored = Math.floorMod(rand.nextLong() * 17, wicketP);
+		long runScored = (((rand.nextInt(100) * 7621) + 1) % 32768) % wicketP;
 		// System.out.println("runScored: " + runScored);
 
-		if(runScored <= dotP) 
+		if (runScored <= dotP)
 			return 0L;
-		if(runScored <= oneP) 
+		if (runScored <= oneP)
 			return 1L;
-		if(runScored <= twoP) 
+		if (runScored <= twoP)
 			return 2L;
-		if(runScored <= threeP) 
+		if (runScored <= threeP)
 			return 3L;
-		if(runScored <= fourP) 
+		if (runScored <= fourP)
 			return 4L;
-		if(runScored <= fiveP) 
+		if (runScored <= fiveP)
 			return 5L;
-		if(runScored <= sixP) 
+		if (runScored <= sixP)
 			return 6L;
-		if(runScored <= wicketP) 
+		if (runScored <= wicketP)
 			return -1L;
-		
+
 		return runScored;
 
 	}
-
-//	public Long runScore() {
-//		return runGenerator();
-//	}
 
 }

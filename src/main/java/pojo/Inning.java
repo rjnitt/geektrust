@@ -7,12 +7,8 @@ public class Inning {
 
 	private Map<Integer, Player> player;
 	private List<Commentry> commentry;
-	private Long bowlNumber;
-	private Long remainRun;
-	private Long wicketFallen;
-	private Boolean isWinner;
+	private Summary summary;
 
-	
 	public Map<Integer, Player> getPlayer() {
 		return player;
 	}
@@ -29,36 +25,12 @@ public class Inning {
 		this.commentry = commentry;
 	}
 
-	public Long getBowlNumber() {
-		return bowlNumber;
+	public Summary getSummary() {
+		return summary;
 	}
 
-	public void setBowlNumber(Long bowlNumber) {
-		this.bowlNumber = bowlNumber;
-	}
-
-	public Long getRemainRun() {
-		return remainRun;
-	}
-
-	public void setRemainRun(Long remainRun) {
-		this.remainRun = remainRun;
-	}
-
-	public Long getWicketFallen() {
-		return wicketFallen;
-	}
-
-	public void setWicketFallen(Long wicketFallen) {
-		this.wicketFallen = wicketFallen;
-	}
-
-	public Boolean getIsWinner() {
-		return isWinner;
-	}
-
-	public void setIsWinner(Boolean isWinner) {
-		this.isWinner = isWinner;
+	public void setSummary(Summary summary) {
+		this.summary = summary;
 	}
 
 }

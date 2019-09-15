@@ -5,22 +5,75 @@ public class Commentry {
 //	private String bowler;
 	private String batsman;
 	private Integer run;
-	private boolean isOut;
+	private Boolean isOut;
 	private Integer bowlNumber;
-	private boolean isOver;
+	private Boolean isOver;
+	private Integer remainingRun;
+	private Integer remainingOver;
 
-	private Commentry(String bats, Integer run, Integer bowl) {
+
+	public Integer getBowlNumber() {
+		return bowlNumber;
+	}
+
+	public void setBowlNumber(Integer bowlNumber) {
+		this.bowlNumber = bowlNumber;
+	}
+
+	public Integer getRemainingRun() {
+		return remainingRun;
+	}
+
+	public void setRemainingRun(Integer remainingRun) {
+		this.remainingRun = remainingRun;
+	}
+
+	public Integer getRemainingOver() {
+		return remainingOver;
+	}
+
+	public void setRemainingOver(Integer remainingOver) {
+		this.remainingOver = remainingOver;
+	}
+
+	public Commentry() {
+		super();
+	}
+
+	public Commentry(String batsman, boolean isOut, Integer bowlNumber) {
+		super();
+		this.batsman = batsman;
+		this.isOut = isOut;
+		this.bowlNumber = bowlNumber;
+	}
+	
+	public Commentry(String batsman, Integer run, boolean isOut, Integer bowlNumber, boolean isOver) {
+		super();
+		this.batsman = batsman;
+		this.run = run;
+		this.isOut = isOut;
+		this.bowlNumber = bowlNumber;
+		this.isOver = isOver;
+	}
+
+	public Commentry(String bats, Integer run, Integer bowl) {
 		this.batsman = bats;
 		this.run = run;
 		this.bowlNumber = bowl;
 		this.isOut = false;
 	}
 
-	private Commentry(String bats, Integer run, Integer bowl, Boolean flag) {
+	public Commentry(String bats, Integer bowl,Integer run,  Boolean flag) {
 		this.batsman = bats;
 		this.run = run;
 		this.bowlNumber = bowl;
 		this.isOut = flag;
+	}
+
+	public Commentry(int remainingOver, int remainingRun, boolean isOver) {
+		this.remainingOver = remainingOver;
+		this.remainingRun = remainingRun;
+		this.isOver = isOver;
 	}
 
 	public String getBatsman() {
@@ -39,11 +92,11 @@ public class Commentry {
 		this.run = run;
 	}
 
-	public boolean isOut() {
+	public Boolean isOut() {
 		return isOut;
 	}
 
-	public void setOut(boolean isOut) {
+	public void setOut(Boolean isOut) {
 		this.isOut = isOut;
 	}
 
@@ -55,11 +108,11 @@ public class Commentry {
 		this.bowlNumber = bowl;
 	}
 
-	public boolean isOver() {
+	public Boolean isOver() {
 		return isOver;
 	}
 
-	public void setOver(boolean isOver) {
+	public void setOver(Boolean isOver) {
 		this.isOver = isOver;
 	}
 

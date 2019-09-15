@@ -1,0 +1,36 @@
+{
+  "players": [
+    {
+      "name": "Kirat Boli",
+      "hander": "Right",
+      "role": "Batsman",
+      "battingOrder": 1,
+      "probability": {
+				"dot": 5,
+				"one": 10,
+				"two": 25,
+				"three": 10,
+				"four": 25,
+				"five": 1,
+				"six": 14,
+				"wicket": 10
+			}
+    },
+    {
+      "name": "N.S. Nodhi",
+      "hander": "Right",
+      "role": "Batsman",
+      "battingOrder": 2,
+      "probability": {
+				"dot": 5,
+				"one": 15,
+				"two": 15,
+				"three": 10,
+				"four": 20,
+				"five": 1,
+				"six": 19,
+				"wicket": 15
+			}
+    }
+  ]
+}

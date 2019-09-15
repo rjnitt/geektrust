@@ -8,7 +8,7 @@ public class Player extends Run {
 	private String hand;
 	private String role;
 	
-	private Long battingOrder;
+	private Integer battingOrder;
 
 	private Boolean isOut;
 	private Integer ballFaced;
@@ -50,11 +50,11 @@ public class Player extends Run {
 		this.role = role;
 	}
 
-	public Long getBattingOrder() {
+	public Integer getBattingOrder() {
 		return battingOrder;
 	}
 
-	public void setBattingOrder(Long battingOrder) {
+	public void setBattingOrder(Integer battingOrder) {
 		this.battingOrder = battingOrder;
 	}
 
@@ -98,17 +98,17 @@ public class Player extends Run {
 				+ ", isOut=" + isOut + ", ballFaced=" + ballFaced + ", runScore=" + runScore + "]";
 	}
 
-	public Integer getTotalRunScore() {
-		return totalRunScore;
-	}
+//	public Integer getTotalRunScore() {
+//		return totalRunScore;
+//	}
 
-	public void setTotalRunScore(Integer totalRunScore) {
-		this.totalRunScore = totalRunScore;
-	}
-
-	public void setTotalRunScoreA(Integer totalRunScore) {
-		this.totalRunScore += totalRunScore;
-	}
+//	public void setTotalRunScore(Integer totalRunScore) {
+//		this.totalRunScore = totalRunScore;
+//	}
+//
+//	public void setTotalRunScoreA(Integer totalRunScore) {
+//		this.totalRunScore += totalRunScore;
+//	}
 //	public void setBallFacedA(Integer totalRunScore) {
 //		this.ballFaced += totalRunScore;
 //	}

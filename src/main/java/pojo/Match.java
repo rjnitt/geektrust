@@ -3,7 +3,7 @@ package pojo;
 public class Match {
 
 	private String matchName;
-	private Long partnershipAllow;
+	private Long maximumPlayer;
 	private Long maximumOver;
 	private Long target;
 	private Long ballAllowedPerOver;
@@ -20,13 +20,7 @@ public class Match {
 		this.matchName = matchName;
 	}
 
-	public Long getPartnershipAllow() {
-		return partnershipAllow;
-	}
-
-	public void setPartnershipAllow(Long partnershipAllow) {
-		this.partnershipAllow = partnershipAllow;
-	}
+	
 
 	public Long getMaximumOver() {
 		return maximumOver;
@@ -54,8 +48,16 @@ public class Match {
 
 	@Override
 	public String toString() {
-		return "Match [matchName=" + matchName + ", partnershipAllow=" + partnershipAllow + ", maximumOver="
+		return "Match [matchName=" + matchName  + ", maximumOver="
 				+ maximumOver + ", target=" + target + ", ballAllowedPerOver=" + ballAllowedPerOver + "]";
+	}
+
+	public Long getMaximumPlayer() {
+		return maximumPlayer;
+	}
+
+	public void setMaximumPlayer(Long maximumPlayer) {
+		this.maximumPlayer = maximumPlayer;
 	}
 
 	

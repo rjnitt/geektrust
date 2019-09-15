@@ -44,9 +44,11 @@ public class CricketUtils {
 		Match p = new Match();
 
 		p.setMatchName((String) json.get("matchName"));
-		p.setTarget((Long) json.get("target"));
+		if (json.containsKey("target")) {
+			p.setTarget((Long) json.get("target"));
+		}
 		p.setMaximumOver((Long) json.get("maximumOver"));
-		p.setPartnershipAllow((Long) json.get("partnershipAllow"));
+		p.setMaximumPlayer((Long) json.get("teamSize"));
 		p.setBallAllowedPerOver((Long) json.get("ballAllowedPerOver"));
 
 //			p.setWicketFall(0);
@@ -57,8 +59,8 @@ public class CricketUtils {
 		return p;
 	}
 
-	public static  Map<Integer, Player> transformPlayerFromJson(String filename) throws FileNotFoundException {
-		 Map<Integer, Player> m = new HashMap<Integer, Player>();
+	public static Map<Integer, Player> transformPlayerFromJson(String filename) throws FileNotFoundException {
+		Map<Integer, Player> m = new HashMap<Integer, Player>();
 		JSONObject playerJsonList = getFileFromResources(filename);
 		JSONArray ja = (JSONArray) playerJsonList.get("players");
 //		List<Player> list = new ArrayList<Player>();
@@ -69,12 +71,13 @@ public class CricketUtils {
 			p.setName((String) json.get("name"));
 			p.setHand((String) json.get("hander"));
 			p.setRole((String) json.get("role"));
-			p.setBattingOrder((Long) json.get("battingOrder"));
+			Long long1 = (Long) json.get("battingOrder");
+			p.setBattingOrder(long1.intValue());
 
 			p.setIsOut(false);
 			p.setBallFaced(0);
 			p.setRunScore(0);
-			p.setTotalRunScore(0);
+//			p.setTotalRunScore(0);
 
 			JSONObject probObject = (JSONObject) json.get("probability");
 			// PlayerProbabilityRun pp = PlayerProbabilityRun.transformFromJson(probObject);
@@ -91,7 +94,7 @@ public class CricketUtils {
 			// p.setProbability(pp);
 //			list.add(p);
 			m.put(p.getBattingOrder().intValue(), p);
-			
+
 		}
 
 		return m;
@@ -109,6 +112,5 @@ public class CricketUtils {
 		l.add(pw1);
 		return l;
 	}
-
 
 }
